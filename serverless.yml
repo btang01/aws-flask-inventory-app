@@ -1,0 +1,28 @@
+org: myorg
+app: flask-inventory-app
+service: flask-api
+
+provider:
+  name: aws
+  runtime: python3.7
+
+# prepare to create Lambda function with handler
+# handler determines where to look for python code when function is triggered
+functions:
+  app:
+    handler: wsgi_handler.handler
+    events:
+      - http: ANY /
+      - http: 'ANY {proxy+}'
+
+custom:
+  wsgi:
+    app: app.app
+    pythonBin: python3 # Some systems with Python3 may require this
+    packRequirements: false
+  pythonRequirements:
+    dockerizePip: non-linux
+
+plugins:
+  - serverless-wsgi # allows us to use Flask + other frameworks in AWS Lambda
+  - serverless-python-requirements
