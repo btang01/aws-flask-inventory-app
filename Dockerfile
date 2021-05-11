@@ -4,15 +4,17 @@ FROM python:3
 #Set the working directory
 WORKDIR /usr/src/app
 
-#copy all the files
+#copy all the files to the container
 COPY . .
 
-#Install the dependencies
+#Install dependencies
 RUN apt-get -y update
-RUN pip3 install -r requirements.txt
+RUN pip3 install --no-cache-dir -r requirements.txt
 
 #Expose the required port
-EXPOSE 5001
+EXPOSE 5000
 
 #Run the command (./ is execute what is in current directory)
-CMD [“python3”, “./app.py”]
+#Runs when container is instantiated using the image being built
+#CMD [“flask”, “run”, "--host=0.0.0.0", "--port=5000", "echo", "is this working"]
+CMD ["flask", "run", "--host", "0.0.0.0"]
