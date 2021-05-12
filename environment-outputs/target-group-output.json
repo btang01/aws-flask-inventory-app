@@ -1,0 +1,24 @@
+{
+    "TargetGroups": [
+        {
+            "TargetGroupArn": "arn:aws:elasticloadbalancing:us-east-1:402907171856:targetgroup/FlaskProject-TargetGroup/8a32703e3aad5d33",
+            "TargetGroupName": "FlaskProject-TargetGroup",
+            "Protocol": "HTTP",
+            "Port": 5000,
+            "VpcId": "vpc-fa52dc87",
+            "HealthCheckProtocol": "HTTP",
+            "HealthCheckPort": "traffic-port",
+            "HealthCheckEnabled": true,
+            "HealthCheckIntervalSeconds": 10,
+            "HealthCheckTimeoutSeconds": 5,
+            "HealthyThresholdCount": 3,
+            "UnhealthyThresholdCount": 3,
+            "HealthCheckPath": "/",
+            "Matcher": {
+                "HttpCode": "200"
+            },
+            "TargetType": "ip",
+            "ProtocolVersion": "HTTP1"
+        }
+    ]
+}

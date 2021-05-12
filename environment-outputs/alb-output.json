@@ -1,0 +1,33 @@
+{
+    "LoadBalancers": [
+        {
+            "LoadBalancerArn": "arn:aws:elasticloadbalancing:us-east-1:402907171856:loadbalancer/app/flaskProjectALB/4dbef5b54a1c32fc",
+            "DNSName": "flaskProjectALB-556388592.us-east-1.elb.amazonaws.com",
+            "CanonicalHostedZoneId": "Z35SXDOTRQ7X7K",
+            "CreatedTime": "2021-05-12T04:00:55.060000+00:00",
+            "LoadBalancerName": "flaskProjectALB",
+            "Scheme": "internet-facing",
+            "VpcId": "vpc-fa52dc87",
+            "State": {
+                "Code": "provisioning"
+            },
+            "Type": "application",
+            "AvailabilityZones": [
+                {
+                    "ZoneName": "us-east-1a",
+                    "SubnetId": "subnet-6d666b20",
+                    "LoadBalancerAddresses": []
+                },
+                {
+                    "ZoneName": "us-east-1c",
+                    "SubnetId": "subnet-fdddaf9b",
+                    "LoadBalancerAddresses": []
+                }
+            ],
+            "SecurityGroups": [
+                "sg-311fbb34"
+            ],
+            "IpAddressType": "ipv4"
+        }
+    ]
+}

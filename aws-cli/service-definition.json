@@ -1,0 +1,30 @@
+{
+    "serviceName": "FlaskProject-Service",
+    "cluster": "FlaskProjectCluster",
+    "launchType": "FARGATE",
+    "deploymentConfiguration": {
+      "maximumPercent": 200,
+      "minimumHealthyPercent": 100
+    },
+    "desiredCount": 1,
+    "networkConfiguration": {
+      "awsvpcConfiguration": {
+        "assignPublicIp": "ENABLED",
+        "securityGroups": [
+          "sg-311fbb34"
+        ],
+        "subnets": [
+          "subnet-6d666b20",
+          "subnet-fdddaf9b"
+        ]
+      }
+    },
+    "taskDefinition": "awsFlaskInventoryService",
+    "loadBalancers": [
+      {
+        "containerName": "awsFlaskInventory-Service",
+        "containerPort": 5000,
+        "targetGroupArn": "arn:aws:elasticloadbalancing:us-east-1:402907171856:targetgroup/FlaskProject-TargetGroup/8a32703e3aad5d33"
+      }
+    ]
+  }

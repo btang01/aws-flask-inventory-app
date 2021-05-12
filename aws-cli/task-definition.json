@@ -1,0 +1,32 @@
+{
+  "family": "awsFlaskInventoryService",
+  "cpu": "256",
+  "memory": "512",
+  "networkMode": "awsvpc",
+  "requiresCompatibilities": [
+    "FARGATE"
+  ],
+  "executionRoleArn": "arn:aws:iam::402907171856:role/ecsTaskExecutionRole",
+  "taskRoleArn": "arn:aws:iam::402907171856:role/aws-service-role/ecs.amazonaws.com/customAWSServiceRoleForECS",
+  "containerDefinitions": [
+    {
+      "name": "awsFlaskInventory-Service",
+      "image": "402907171856.dkr.ecr.us-east-1.amazonaws.com/flaskproject/service:latest",
+      "portMappings": [
+        {
+          "containerPort": 5000,
+          "protocol": "http"
+        }
+      ],
+      "logConfiguration": {
+        "logDriver": "awslogs",
+        "options": {
+          "awslogs-group": "FlaskProjectLogs",
+          "awslogs-region": "us-east-1",
+          "awslogs-stream-prefix": "awslogs-awsFlaskInventory-service"
+        }
+      },
+      "essential": true
+    }
+  ]
+}
